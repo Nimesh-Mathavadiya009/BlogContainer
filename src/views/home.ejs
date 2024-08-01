@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("includes/head.ejs") %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGE</title>
+</head>
+<body>
+    <%- include("includes/nav.ejs") %>
+    <div class="container mt-3">
+        <div class="row row-cols-4">
+            <% blogs.forEach(element => { %>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<%= element.coverImage %>" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= element.title %></h5>
+        
+                          <a href="/api/v1/blogs/<%= element._id %>" class="btn btn-primary">View</a>
+                        </div>
+                      </div>
+                </div>
+            <%   }); %>
+        </div>
+    </div>
+    <%- include("includes/script.ejs") %>
+</body>
+</html>
